@@ -6,7 +6,7 @@ list<PolynomialItem>add(list<PolynomialItem>itemListA,list<PolynomialItem>itemLi
         PolynomialItem itemA=itemListA.front();
         PolynomialItem itemB=itemListB.front();
 
-    }
+
     if(itemA.expn<itemB.expn)
     {
         results.push_back(itemA);
