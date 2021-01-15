@@ -20,22 +20,4 @@ void LinkedList<T>::remove(int index)
     }
     pNode->next=pNode->next->next;
 }
-public void delete(int index)
-{
-    if(index<0)
-    {
-        throw new IllegalStateException("index<0");
-    }
-    NOde p=header;
-    int i=0;
-    while(i<=index && p !=null)
-    {
-        p=p.next;
-        i++;
-    }
-    if(p==null)
-    {
-        throw new IndexOutBoundsException("index out of bounds");
-    }
-    p.next=p.next.next;
-}
+
