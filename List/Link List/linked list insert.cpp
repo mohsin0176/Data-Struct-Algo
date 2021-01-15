@@ -22,3 +22,25 @@ void LinkedList<T>::insert(T data,int index)
     s->next=pNode->next;
     pNode->next=s;
 }
+public void insert(Elem data,int index)
+{
+    if(index<0||data==null)
+    {
+        throw newNullPointerException("index<0||data==null");
+    }
+    Node p=header;
+    int i=0;
+    while(i<index&&p.next!=null)
+    {
+        p=p.next;
+        i++;
+    }
+    if(p==null)
+    {
+        throw new IndexOutOfBoundsException("Index Out of bounds");
+    }
+    Node s=new Node();
+    s.data=data;
+    s.next=p.next;
+    p.next=s;
+}
