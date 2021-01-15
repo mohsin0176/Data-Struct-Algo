@@ -9,6 +9,8 @@ void ArrayList<T>::remove(int index)
             datas[i]=datas[i+1];
         }
         datas[length-1]=NULL;
-        length--
+        length--;
     }
 }
+
+
