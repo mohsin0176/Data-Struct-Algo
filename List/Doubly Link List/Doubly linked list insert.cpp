@@ -1,14 +1,14 @@
 template<typename T>
-void DoublyLinkedList<T>::insert(T data,int index)
+void DoublyLinkedList<T>::remove(int index)
 {
     if(index<0)
     {
         cout<<"index<0"<<endl;
         return ;
     }
-    int temp;
+    int temp=0;
     Node<T>*pNode=header;
-    while(temp<index && pNode->next != nullptr)
+    while(temp<index)
     {
         pNode=pNode->next;
         temp++;
@@ -18,13 +18,28 @@ void DoublyLinkedList<T>::insert(T data,int index)
         cout<<"index out of bounds"<<endl;
         return;
     }
-    Node<T>*s=new Node<T>();
-    s->data=data;
-    s->prev=pNode;
-    s->next=pNode->next;
-    if(pNode->next !=nullptr)
+    pNode->prev->next=pNode->next;
+    if(pNode->next!=nullptr)
     {
-        pNode->next->prev=s;
+        pNode->next->prev=pNode->prev;
     }
-    pNode->next=s;
+}
+public void delete(int index)
+{
+    if(index<0)
+    {
+        throw new IllegalStateException("index<0");
+    }
+    Node p=header;
+    int i=0;
+    while(i<=index&&p!=null)
+    {
+        p=p.next;
+        i++;
+    }
+    if(p==null)
+    {
+        throw new IndexOutOfBoundsException("index out of bounds");
+    }
+    p.next=p.next.next;
 }
