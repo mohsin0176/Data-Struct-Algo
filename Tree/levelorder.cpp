@@ -1,0 +1,24 @@
+void levelOrderTraversal(BiNode*biNode)
+{
+    if(biNode==NULL)
+    {
+        return;
+    }
+    queue<BiNode*>queue;
+    queue.push(biNode);
+    Bi*Node=curNode;
+    while(!queue.empty())
+    {
+        curNode=queue.front();
+        cout<<curNode->data;
+        if(curNode->leftChild!=NULL)
+        {
+            queue.push(curNode->leftChild);
+        }
+        if(curNode->rightChild!=NULL)
+        {
+            queue.push(curNode->rightChild);
+        }
+        queue.pop();
+    }
+}
